@@ -6,7 +6,7 @@ import numpy as np
 import pickle
 from pathlib import Path
 
-def load_separate_graphs(input_dir='original'):
+def load_separate_graphs(input_dir='data/original'):
     """Load separate conference graphs from PKL files"""
     conference_graphs = {}
     for pkl_file in Path(input_dir).glob('*_graph.pkl'):
@@ -27,8 +27,8 @@ def load_separate_graphs(input_dir='original'):
             continue
     return conference_graphs
 
-def combine_conference_graphs(input_dir='original', 
-                            output_dir='processed_graphs_combined',
+def combine_conference_graphs(input_dir='data/original', 
+                            output_dir='data/processed_graphs_combined',
                             train_confs=['USENIX', 'ACM'], 
                             val_confs=['IEEE'], 
                             test_confs=['NDSS'],
@@ -223,7 +223,7 @@ def main():
     # Example of loading for training
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     combined_data = load_and_process_combined_data(
-        'processed_graphs_combined/combined_conferences.pkl', 
+        'data/processed_graphs_combined/combined_conferences.pkl', 
         device
     )
 

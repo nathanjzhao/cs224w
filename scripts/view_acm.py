@@ -14,6 +14,6 @@ def load_and_print_tensor(file_path):
 if __name__ == "__main__":
     # Specify the path to your acm.pkl file
     file_path = 'acm.pkl'  # Change this to the full path if necessary
-    file_path = 'processed_graphs_combined/combined_conferences.pkl'  # Change this to the full path if necessary
+    file_path = 'data/processed_graphs_combined/combined_conferences.pkl'  # Change this to the full path if necessary
     # file_path = 'original/USENIX_graph.pkl'
     load_and_print_tensor(file_path) 

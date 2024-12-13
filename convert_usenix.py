@@ -6,7 +6,7 @@ import numpy as np
 import pickle
 from pathlib import Path
 
-def load_usenix_graph(input_dir='original'):
+def load_usenix_graph(input_dir='data/original'):
     """Load USENIX conference graph from PKL file"""
     pkl_file = Path(input_dir) / 'USENIX_graph.pkl'
     try:
@@ -22,8 +22,8 @@ def load_usenix_graph(input_dir='original'):
         print(f"Error opening USENIX graph file: {e}")
         return None
 
-def process_usenix_graph(input_dir='original', 
-                        output_dir='processed_usenix',
+def process_usenix_graph(input_dir='data/original', 
+                        output_dir='data/processed_usenix',
                         train_ratio=0.7,
                         val_ratio=0.15,
                         test_ratio=0.15,
@@ -150,7 +150,7 @@ def main():
     # Example of loading for training
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     processed_data = load_processed_data(
-        'processed_usenix/usenix_processed.pkl', 
+        'data/processed_usenix/usenix_processed.pkl', 
         device
     )
 
