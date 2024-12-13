@@ -8,7 +8,6 @@ import matplotlib.pyplot as plt
 from torch_geometric.utils import to_networkx
 from thefuzz import fuzz, process
 import pickle
-from pathlib import Path
 import colorama
 
 colorama.init(autoreset=True)

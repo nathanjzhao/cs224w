@@ -104,7 +104,7 @@ def combine_conference_graphs(input_dir='original',
         ])
         pap_edges_list.append(indices)
         
-        # Paper-subject-paper connections
+        # Paper-subject-paper connections according to similarity threshold
         paper_embeddings = graph['paper'].x
         similarity_matrix = torch.mm(paper_embeddings, paper_embeddings.t())
         paper_subject_edges = (similarity_matrix > subject_threshold).nonzero().t()
@@ -174,7 +174,6 @@ def save_combined_data(combined_data, output_path):
     """Safely save the combined data"""
     try:
         with open(output_path, 'wb') as f:
-            # Use protocol 4 for better compatibility
             pickle.dump(combined_data, f, protocol=4)
         print(f"Successfully saved combined data to {output_path}")
     except Exception as e:
